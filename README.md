@@ -1,0 +1,1 @@
+VPN Test: new private GitHub repo "VPNTest" -> upload everything (incl. hidden .github) -> Actions -> Build VPNTest IPA -> download VPNTest-ipa -> Sideloadly -> open app -> tap "Turn on VPN" -> screenshot.

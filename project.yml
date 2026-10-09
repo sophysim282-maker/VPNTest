@@ -1,0 +1,33 @@
+name: VPNTest
+options:
+  bundleIdPrefix: com.personal
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  VPNTest:
+    type: application
+    platform: iOS
+    sources: [VPNTest]
+    info:
+      path: VPNTest/Info.plist
+      properties:
+        CFBundleDisplayName: VPN Test
+        UILaunchScreen: {}
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.personal.vpntest
+    dependencies:
+      - target: Tunnel
+        embed: true
+  Tunnel:
+    type: app-extension
+    platform: iOS
+    sources: [Tunnel]
+    info:
+      path: Tunnel/Info.plist
+      properties:
+        CFBundleDisplayName: Tunnel
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.personal.vpntest.tunnel
